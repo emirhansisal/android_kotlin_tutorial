@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId "com.example.android_kotlin_tutorial"
         minSdk 23
-        targetSdk 32
+        targetSdk 30
         versionCode 1
         versionName "1.0"
 
@@ -28,6 +28,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
     }
 }
 
