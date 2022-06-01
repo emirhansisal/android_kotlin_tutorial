@@ -6,13 +6,12 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android_kotlin_tutorial.R
-import com.example.android_kotlin_tutorial.models.Prod
+import com.example.android_kotlin_tutorial.models.Product
 import android.widget.TextView
-import com.example.android_kotlin_tutorial.databinding.ActivityMainBinding
 
 class ProductAdapter (
-    private val prodList: MutableList<Prod>
-) : RecyclerView.Adapter<ProductAdapter.ProdViewHolder>() {  //türettiğimiz class ın ctor ını çağır anlamında, ctor içinde super yazmamıza gerek kalmıyor
+    private val productList: MutableList<Product>
+) : RecyclerView.Adapter<ProductAdapter.ProdViewHolder>() {  //türettiğimiz class ın ctor ını çağır anlamında, ctor yaratıp içinde super yazmamıza gerek kalmıyor
 
     class ProdViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var tvTitle: TextView
@@ -26,17 +25,17 @@ class ProductAdapter (
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProdViewHolder {
         return ProdViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.item_prod, parent
+                R.layout.item_product, parent
             )
         )
     }
 
     override fun onBindViewHolder(holder: ProdViewHolder, position: Int) {
-        val prod = prodList[position]
+        val prod = productList[position]
         holder.tvTitle.text = prod.Title
     }
 
     override fun getItemCount(): Int {
-        return prodList.size
+        return productList.size
     }
 }
