@@ -31,17 +31,17 @@
                 android:layout_weight="1">
 
                 <Button
-                    android:id="@+id/delButton"
+                    android:id="@+id/addButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Add to list"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/addButton"
+                    app:layout_constraintEnd_toStartOf="@+id/delButton"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
-                    android:id="@+id/addButton"
+                    android:id="@+id/delButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
