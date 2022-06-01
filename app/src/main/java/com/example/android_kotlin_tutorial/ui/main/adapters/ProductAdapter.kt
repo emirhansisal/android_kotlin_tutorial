@@ -30,7 +30,7 @@ class ProductAdapter (
         mContext = parent.context
         return ProductViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.item_product, parent
+                R.layout.item_product, parent, false
             )
         )
     }
@@ -52,9 +52,9 @@ class ProductAdapter (
 
     private fun updateView(holder: ProductViewHolder) {
         if (holder.cbIsLiked.isChecked) {
-            holder.tvTitle.highlightColor = mContext.getColor(R.color.purple_200)
+            holder.tvTitle.setTextColor(mContext.getColor(R.color.purple_200))
         } else {
-            holder.tvTitle.highlightColor = mContext.getColor(R.color.white)
+            holder.tvTitle.setTextColor(mContext.getColor(R.color.black))
         }
     }
 

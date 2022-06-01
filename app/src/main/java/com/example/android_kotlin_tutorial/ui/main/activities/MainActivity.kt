@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         binding.addButton.setOnClickListener() {
             val prod = Product(binding.productTitleEditText.text.toString(), false)
             prodAdapter.addItem(prod)
+            binding.productTitleEditText.text.clear()
         }
 
         binding.delButton.setOnClickListener {
