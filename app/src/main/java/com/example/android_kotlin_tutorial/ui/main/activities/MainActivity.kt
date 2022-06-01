@@ -2,31 +2,34 @@ package com.example.android_kotlin_tutorial.ui.main.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.android_kotlin_tutorial.databinding.ActivityMainBinding
+import androidx.recyclerview.widget.RecyclerView
+import com.example.android_kotlin_tutorial.R
 import com.example.android_kotlin_tutorial.models.Product
 import com.example.android_kotlin_tutorial.ui.main.adapters.ProductAdapter
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
     private lateinit var prodAdapter: ProductAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
 
-        binding.productListRecyclerView.layoutManager = LinearLayoutManager(this)
+        val rvProd = findViewById<RecyclerView>(R.id.productListRecyclerView)
+        val etProdTitle = findViewById<EditText>(R.id.productTitleEditText)
+        rvProd.layoutManager = LinearLayoutManager(this)
         prodAdapter = ProductAdapter(mutableListOf())
-        binding.productListRecyclerView.adapter = prodAdapter
+        rvProd.adapter = prodAdapter
 
-        binding.addButton.setOnClickListener() {
-            val prod = Product(binding.productTitleEditText.text.toString(), false)
+        findViewById<Button>(R.id.addButton).setOnClickListener() {
+            val prod = Product(etProdTitle.text.toString(), false)
             prodAdapter.addItem(prod)
         }
 
-        binding.delButton.setOnClickListener {
+        findViewById<Button>(R.id.delButton).setOnClickListener {
             prodAdapter.removeLikedItems()
         }
     }

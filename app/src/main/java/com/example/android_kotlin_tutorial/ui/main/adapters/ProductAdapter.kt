@@ -30,7 +30,7 @@ class ProductAdapter (
         mContext = parent.context
         return ProductViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.item_product, parent
+                R.layout.item_product, parent, false
             )
         )
     }
