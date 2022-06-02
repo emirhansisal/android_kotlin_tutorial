@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android_kotlin_tutorial.databinding.ActivityMainBinding
 import com.example.android_kotlin_tutorial.models.Product
+import com.example.android_kotlin_tutorial.models.ProductId
 import com.example.android_kotlin_tutorial.ui.main.adapters.ProductAdapter
 
 class MainActivity : AppCompatActivity() {
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding.productListRecyclerView.adapter = prodAdapter
 
         binding.addButton.setOnClickListener() {
-            val prod = Product(binding.productTitleEditText.text.toString(), false)
+            val prod = Product(ProductId.getNew(), binding.productTitleEditText.text.toString(), false)
             prodAdapter.addItem(prod)
             binding.productTitleEditText.text.clear()
         }
