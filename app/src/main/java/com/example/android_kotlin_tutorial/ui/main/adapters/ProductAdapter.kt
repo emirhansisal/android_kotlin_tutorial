@@ -24,9 +24,11 @@ class ProductAdapter (
         }
     }
 
+    private lateinit var mParent: ViewGroup
     private lateinit var mContext: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
+        mParent = parent
         mContext = parent.context
         return ProductViewHolder(
             LayoutInflater.from(parent.context).inflate(
@@ -66,6 +68,7 @@ class ProductAdapter (
     fun removeLikedItems() {
         productList.removeAll { prod ->
             if (prod.IsLiked) notifyItemRemoved(productList.indexOf(prod))
+            mParent.findViewById<RecyclerView>(R.id.productListRecyclerView).invalidate()
             prod.IsLiked
         }
     }
