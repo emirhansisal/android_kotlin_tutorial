@@ -38,12 +38,8 @@ class DetailActivity : AppCompatActivity() {
             binding.tvDesc.text = it
         })
 
-        if (productDetail != null) {
-            viewModel.liveColor.value = productDetail?.Color ?: 0
-            viewModel.liveDesc.value = productDetail?.Desc ?: ""
-        } else {
-
-        }
+        viewModel.liveColor.value = productDetail?.Color ?: 0
+        viewModel.liveDesc.value = productDetail?.Desc ?: ""
 
         this.lifecycleScope.launch{
             repeatOnLifecycle(Lifecycle.State.STARTED) {
