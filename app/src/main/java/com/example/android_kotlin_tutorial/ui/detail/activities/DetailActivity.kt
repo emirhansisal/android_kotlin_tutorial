@@ -41,7 +41,7 @@ class DetailActivity : AppCompatActivity() {
         viewModel.liveColor.value = productDetail?.Color ?: 0
         viewModel.liveDesc.value = productDetail?.Desc ?: ""
 
-        this.lifecycleScope.launch{
+        this.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 while (true) {
                     delay(1000L)
